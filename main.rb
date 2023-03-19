@@ -1,6 +1,14 @@
-require_relative 'lexer'
+require_relative 'lua_table'
 
-sample = '{ name = "sh", cmd = { "/bin/sh" } }'
+sample = '{
+    "ellisonleao/gruvbox.nvim",
+    "rebelot/kanagawa.nvim",
+    "neovim/nvim-lspconfig",
+    "rbnrayan/yello_world.nvim",
+    autopairs = { "windwp/nvim-autopairs" }
+}'
 
-lexer = Lexer.new(sample)
-p lexer.tokenize
+lua_table = LuaTable.new(sample)
+lua_table.add("test")
+lua_table.add({ name: "sh" })
+p lua_table.table 
